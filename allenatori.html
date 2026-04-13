@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allenatori</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url(style.css);
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="loader-content">
+            <img src="personaggio.png" alt="Omino" class="loader-logo">
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+            <div class="loader-text">allenamento in corso...</div>
+        </div>
+    </div>
+    <div class="logo-area"></div>
+    <!-- Navbar -->
+    <div class="container-fluid fixed-top mt-4 d-flex justify-content-center" style="z-index: 9999;">
+        <div class="navbar-custom">
+            <!-- Blocco Sinistro -->
+            <div class="nav-item">
+                <span id="menuToggle" class="nav-link-custom">menù</span>
+            </div>
+
+            <!-- Blocco Centrale (Logo) -->
+            <div class="nav-item logo-item">
+                <a href="index.html" class="card">
+                    <img src="logoScritta.png" class="img-base immagine_piccola">
+                    <img src="personaggioHeader.png" class="img-hover immagine_piccola">
+                </a>
+            </div>
+
+            <!-- Blocco Destro -->
+            <div class="nav-item">
+                <a href="login.html" class="nav-link-custom">log-in</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay Menu -->
+    <div id="menuOverlay" class="menu-overlay">
+        <span id="closeMenu" class="close-btn">&times;</span>
+        <div class="menu-content">
+            <a href="chi-siamo.html" class="menu-link">chi siamo</a>
+            <a href="index.html#corsi" class="menu-link" id="corsiLink">corsi</a>
+            <a href="allenatori.html" class="menu-link">allenatori</a>
+            <a href="contatti.html" class="menu-link">contatti</a>
+
+            <!-- Opzioni Accessibilità nel Menu -->
+            <div class="menu-acc-section mt-5">
+                <p class="text-white small text-uppercase">Assistenza Accessibilità</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <button class="btn btn-outline-light btn-sm" onclick="toggleHighContrast()">Inverti</button>
+                    <button class="btn btn-outline-light btn-sm" onclick="toggleDyslexicFont()">Font</button>
+                    <button class="btn btn-outline-light btn-sm" onclick="readAloud()">Audio</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pulsante Accessibilità rapido (Top Left) -->
+    <div class="accessibility-fab left-side" id="accFab" title="Accessibilità">
+        <div class="wheelchair-icon">
+            <div class="wheelchair-head"></div>
+            <div class="wheelchair-body"></div>
+            <div class="wheelchair-wheel"></div>
+        </div>
+    </div>
+
+    <!-- Pannello Accessibilità Rapido -->
+    <div id="accPanel" class="acc-panel left-side">
+        <span class="close-acc" id="closeAcc">&times;</span>
+        <h3 class="impact-text">Accessibilità</h3>
+        <button onclick="toggleHighContrast()">Inverti Colori (WCAG)</button>
+        <button onclick="toggleDyslexicFont()">Font Leggibile (Dyslexic)</button>
+        <button onclick="readAloud()">Leggi Contenuto (Audio)</button>
+        <button onclick="changeFontSize(1.2)">Ingrandisci Caratteri</button>
+        <button onclick="changeFontSize(1)">Dimensioni Standard</button>
+    </div>
+
+    <!-- Contenuto Allenatori Grid -->
+    <div class="allenatori-sfondo overflow-hidden position-relative pb-5">
+        <!-- Floating Blobs Decorativi -->
+        <div class="floating-blob"
+            style="top: 20%; right: 10%; background: radial-gradient(circle, #F4ED36 0%, transparent 70%);"></div>
+        <div class="floating-blob"
+            style="top: 70%; left: 5%; background: radial-gradient(circle, #8584BD 0%, transparent 70%);"></div>
+
+        <div class="container z-2 position-relative pt-5">
+            <div class="testo-allenatori-hero reveal-bouncy">la nostra <br> squadra d'assalto</div>
+            <p class="text-white text-center mb-5 fw-bold reveal-bouncy"
+                style="font-size: 20px; text-transform: lowercase;">Non sono semplici istruttori. Sono i tuoi prossimi
+                incubi (e i tuoi migliori amici).</p>
+
+            <div class="marquee-container my-5">
+                <div class="marquee-content">
+                    WORK HARD PLAY HARD • ATELIER BODY • BE UNSTOPPABLE • ATELIER BODY • NO EXCUSES • ATELIER BODY • NO
+                    LIMITS • ATELIER BODY •
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-5">
+                <!-- 1. Marco Rossi -->
+                <div class="col-12 col-md-6 col-lg-4 mb-4 reveal-bouncy">
+                    <div class="allenatore-card-container">
+                        <div class="badge-coach">Il Veterano</div>
+                        <img src="img/allenatore1.png" alt="Marco Rossi" class="allenatore-img-ph"
+                            onerror="this.src='personaggio1.png'">
+                        <div class="allenatore-nome-card">Marco Rossi</div>
+                        <div class="allenatore-ruolo-card">Functional Training</div>
+                        <div class="allenatore-desc-card">"Se non sudi, non vale."</div>
+                        <a href="marco-rossi.html" class="btn-scopri mt-auto">Scopri la sua forza</a>
+                    </div>
+                </div>
+
+                <!-- 2. Luca Bianchi -->
+                <div class="col-12 col-md-6 col-lg-4 mb-4 reveal-bouncy" style="transition-delay: 0.1s;">
+                    <div class="allenatore-card-container">
+                        <div class="badge-coach red">Macchina HIIT</div>
+                        <img src="img/allenatore2.png" alt="Luca Bianchi" class="allenatore-img-ph"
+                            onerror="this.src='personaggio2.png'">
+                        <div class="allenatore-nome-card">Luca Bianchi</div>
+                        <div class="allenatore-ruolo-card">HIIT</div>
+                        <div class="allenatore-desc-card">"Il riposo è un'opinione."</div>
+                        <a href="luca-bianchi.html" class="btn-scopri mt-auto">Burn Baby Burn</a>
+                    </div>
+                </div>
+
+                <!-- 3. Sara Verdi -->
+                <div class="col-12 col-md-6 col-lg-4 mb-4 reveal-bouncy" style="transition-delay: 0.2s;">
+                    <div class="allenatore-card-container">
+                        <div class="badge-coach yellow">Zen & Power</div>
+                        <img src="immagineYogaAllenatore.png" alt="Sara Verdi" class="allenatore-img-ph">
+                        <div class="allenatore-nome-card">Sara Verdi</div>
+                        <div class="allenatore-ruolo-card">Yoga Flow</div>
+                        <div class="allenatore-desc-card">"Respira... e poi spingi."</div>
+                        <a href="sara-verdi.html" class="btn-scopri mt-auto">Trova l'Equilibrio</a>
+                    </div>
+                </div>
+
+                <!-- 4. Andrea Neri -->
+                <div class="col-12 col-md-6 col-lg-4 mb-4 reveal-bouncy" style="transition-delay: 0.3s;">
+                    <div class="allenatore-card-container">
+                        <div class="badge-coach blue">The Striker</div>
+                        <img src="immagineAllenatoreBoxe.png" alt="Andrea Neri" class="allenatore-img-ph">
+                        <div class="allenatore-nome-card">Andrea Neri</div>
+                        <div class="allenatore-ruolo-card">Fit Boxing</div>
+                        <div class="allenatore-desc-card">"Colpisci duro, vivi meglio."</div>
+                        <a href="andrea-neri.html" class="btn-scopri mt-auto">Entra nel Ring</a>
+                    </div>
+                </div>
+
+                <!-- 5. Davide Gallo -->
+                <div class="col-12 col-md-6 col-lg-4 mb-4 reveal-bouncy" style="transition-delay: 0.4s;">
+                    <div class="allenatore-card-container">
+                        <div class="badge-coach purple">Tank</div>
+                        <img src="immagineAllenatoreStraight.png" alt="Davide Gallo" class="allenatore-img-ph">
+                        <div class="allenatore-nome-card">Davide Gallo</div>
+                        <div class="allenatore-ruolo-card">Strength</div>
+                        <div class="allenatore-desc-card">"La gravità è tua nemica."</div>
+                        <a href="davide-gallo.html" class="btn-scopri mt-auto">Solleva l'Impossibile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-custom mt-5">
+        <!-- Decori Galleggianti -->
+        <div class="footer-deco" style="top: 10%; right: 5%;">🏃‍♂️</div>
+        <div class="footer-deco" style="bottom: 15%; left: 2%;">🧘</div>
+        <div class="footer-deco" style="top: 40%; left: 40%;">🥊</div>
+
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Mappa a Sinistra -->
+                <div class="col-lg-6 reveal-bouncy">
+                    <div class="footer-map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2849.6240001582196!2d8.857155376586292!3d44.42036080247632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d340c79f33286f%3A0xbd61fc902e810751!2sVia%20dell&#39;Acciaio%2C%2042%2C%2016152%20Genova%20GE!5e0!3m2!1sit!2sit!4v1775855752203!5m2!1sit!2sit"
+                            style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <!-- Contatti a Destra -->
+                <div class="col-lg-6 reveal-bouncy" style="transition-delay: 0.2s;">
+                    <div class="footer-right-content">
+                        <img src="logoScritta.png" alt="Atelier Body" class="footer-logo">
+                        <div class="footer-info">
+                            via dell'acciaio, 42 - genova<br>
+                            tel: +39 012 345 6789<br>
+                            email: info@atelierbody.it
+                        </div>
+                        <a href="contatti.html" class="btn-footer">vieni a trovarci</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-5 mt-5">
+                <div class="col-12 text-center footer-links-bottom">
+                    &copy; 2025 Atelier Body. Tutti i diritti riservati. | Privacy Policy | Cookie Policy
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

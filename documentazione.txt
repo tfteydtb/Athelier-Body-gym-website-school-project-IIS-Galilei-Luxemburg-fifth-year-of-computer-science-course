@@ -1,0 +1,57 @@
+=====================================================
+    PROGETTO GESTIONALE PALESTRA - ATELIER BODY
+=====================================================
+
+--- BREVE INTRODUZIONE ---
+Atelier Body e un sistema gestionale completo per palestre. Il portale permette di gestire soci, personale trainer e calendario dei corsi attraverso un'interfaccia moderna in stile Neo-Brutalismo, sicura e totalmente responsiva.
+
+--- CREDENZIALI AREE RISERVATE ---
+
+1. AREA AMMINISTRATORE:
+   Email: admin@gmail.com
+   Password: admin123
+
+2. AREA UTENTE (SOCIO):
+   Email: matteo@gmail.com
+   Password: matteo123
+
+3. AREA ALLENATORE (COACH):
+   Email: marcorossi@gmail.com
+   Password: palestra123
+
+--- DESCRIZIONE FUNZIONALITA PAGINE ---
+
+> PARTE PUBBLICA:
+- index.html: Home page con presentazione corsi e abbonamenti.
+- allenatori.html: Pagina con lo staff e link ai profili.
+- chi-siamo.html: Informazioni sulla mission della palestra.
+- [Pagine Allenatori]: Profili singoli con animazioni fitness a tema.
+
+> ACCESSO:
+- login.html: Pagina universale per il log-in di tutte le tipologie di utenti.
+- login.php: Gestore della logica di accesso e reindirizzamento.
+
+> AREA AMMINISTRATORE:
+- admin.php: Dashboard principale con pulsanti rapidi.
+- admin-utenti.php: Modulo per registrare o eliminare i soci (Utenti).
+- admin-allenatori.php: Modulo per gestire l'assunzione o licenziamento coach.
+- admin-corsi.php: Modulo per caricare nuove lezioni sul calendario settimanale.
+
+> AREA UTENTE:
+- area-utente.php: Visualizzazione corsi personali e iscrizione a nuovi corsi.
+- iscriviti-corso.php: Script di gestione iscrizione dinamica.
+- disiscriviti.php: Script per la rimozione manuale da una lezione.
+
+> AREA ALLENATORE:
+- area-allenatore.php: Agenda personalizzata del coach con orari e corsi assegnati.
+
+--- STRUTTURA DATABASE (Tabelle Principali) ---
+- amministratori: Accesso al pannello admin.
+- utenti: Dati anagrafici e abbonamenti dei soci.
+- allenatori: Profili dello staff tecnico.
+- corsi: Elenco dettagliato delle lezioni (data, ora, coach).
+- iscrizioni: Collegamento tra un utente e un corso specifico.
+
+=====================================================
+Documentazione aggiornata - Atelier Body 2025
+=====================================================

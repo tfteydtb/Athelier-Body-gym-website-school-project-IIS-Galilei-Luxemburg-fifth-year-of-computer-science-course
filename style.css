@@ -1,0 +1,1696 @@
+.navbar-custom {
+    border: 2px solid black;
+    background-color: white;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    min-width: 400px;
+}
+
+.nav-item {
+    font-family: 'Impact', 'Arial Narrow', sans-serif;
+    font-size: 24px;
+    text-transform: lowercase;
+}
+
+.nav-link-custom {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-link-custom:hover {
+    color: #C94245;
+}
+
+/* Overlay Menu */
+.menu-overlay {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 10000;
+    top: -100%;
+    /* Partenza in alto per l'animazione slide */
+    left: 0;
+    background-color: #8584BD;
+    /* Colore viola della palette */
+    opacity: 0;
+    overflow-y: hidden;
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-overlay.active {
+    top: 0;
+    opacity: 1;
+}
+
+.menu-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.menu-link {
+    font-family: 'Impact', 'Arial Narrow', sans-serif;
+    font-size: 80px;
+    color: #F4ED36;
+    /* Giallo palette base */
+    text-decoration: none;
+    text-transform: lowercase;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.4s ease;
+}
+
+.menu-overlay.active .menu-link {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.menu-overlay.active .menu-link:nth-child(1) {
+    transition-delay: 0.3s;
+}
+
+.menu-overlay.active .menu-link:nth-child(2) {
+    transition-delay: 0.4s;
+}
+
+.menu-overlay.active .menu-link:nth-child(3) {
+    transition-delay: 0.5s;
+}
+
+.menu-overlay.active .menu-link:nth-child(4) {
+    transition-delay: 0.6s;
+}
+
+.menu-link:hover {
+    color: #C94245;
+    /* Rosso in hover */
+    transform: scale(1.1);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 60px;
+    color: white;
+    cursor: pointer;
+    font-family: sans-serif;
+}
+
+.close-btn:hover {
+    color: #F8C1BA;
+}
+
+
+.primo_sfondo {
+    background-color: #8584BD !important;
+    padding-bottom: 60px;
+    position: relative;
+    overflow: hidden;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.secondo_sfondo {
+    background-color: #C94245 !important;
+    padding-bottom: 125px;
+}
+
+.testo1 {
+    text-align: center;
+    color: #F4ED36;
+    font-family: 'Impact', 'Arial Narrow', sans-serif;
+    font-size: 160px;
+    font-weight: 900;
+    letter-spacing: -3px;
+    line-height: 0.85;
+    text-transform: lowercase;
+    margin-top: 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-sticker {
+    position: absolute;
+    background: #F4ED36;
+    color: black;
+    padding: 8px 15px;
+    font-family: 'Impact', sans-serif;
+    text-transform: lowercase;
+    border: 3px solid black;
+    border-radius: 8px;
+    z-index: 15;
+    font-size: 24px;
+    box-shadow: 5px 5px 0px black;
+    animation: stickerFloat 4s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes stickerFloat {
+    from {
+        transform: translate(0, 0) rotate(-5deg);
+    }
+
+    to {
+        transform: translate(10px, -15px) rotate(5deg);
+    }
+}
+
+.testo2 {
+    text-align: center;
+    color: #F8C1BA;
+    font-family: 'Impact', 'Arial Narrow', sans-serif;
+    font-size: 225px;
+    font-weight: 900;
+    letter-spacing: -5px;
+    line-height: 0.8;
+    text-transform: lowercase;
+    margin-top: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.card {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.immagine_piccola {
+    width: 150px;
+    display: inline-block;
+    /* oppure togli proprio display */
+    vertical-align: middle;
+}
+
+/* seconda immagine */
+.img-hover {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(100%);
+    /* parte nascosta sotto */
+    transition: transform 0.5s ease;
+}
+
+/* quando passi sopra */
+.card:hover .img-hover {
+    transform: translateY(40%);
+}
+
+.intro-img {
+    display: inline-block;
+    vertical-align: middle;
+    width: auto;
+    height: 180px;
+    /* Più piccolo e gestibile */
+    margin: 0 15px;
+    opacity: 0;
+    transform: scale(0);
+    filter: drop-shadow(10px 10px 0px rgba(0, 0, 0, 0.2));
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.intro-img.start-anim {
+    opacity: 1;
+    transform: scale(1) rotate(5deg);
+}
+
+/* ------------------------------------- */
+
+/* ------------------------------------- */
+/* Sezione Corsi (5 Colonne, Personaggi) */
+/* ------------------------------------- */
+
+.secondo_sfondo {
+    min-height: 100vh;
+}
+
+.sfondo-testo-corsi {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Impact', 'Arial Narrow', sans-serif;
+    font-size: 20vw;
+    color: rgba(0, 0, 0, 0.05);
+    /* Testo semi-trasparente scuro */
+    white-space: nowrap;
+    z-index: 1;
+    pointer-events: none;
+    text-transform: lowercase;
+}
+
+.personaggio-img-wrapper {
+    height: 300px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.personaggio-placeholder {
+    width: 200px;
+    height: 250px;
+    border: 4px dashed rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.personaggio-img {
+    max-height: 100%;
+    max-width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.personaggio-col:hover .personaggio-img {
+    transform: translateY(-10px) scale(1.05);
+}
+
+.personaggio-col:hover .personaggio-placeholder {
+    transform: translateY(-10px) scale(1.05);
+}
+
+.btn-pill-custom {
+    border-radius: 50px;
+    background-color: white;
+    border: 4px solid black;
+    color: black;
+    font-family: 'Impact', 'Arial Narrow', sans-serif;
+    font-size: 24px;
+    padding: 10px 40px;
+    transition: all 0.2s;
+    text-transform: lowercase;
+    box-shadow: 4px 4px 0px black;
+}
+
+.btn-pill-custom:hover {
+    background-color: #F4ED36;
+    color: black;
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 0px black;
+}
+
+/* Scroll Animazioni */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ------------------------------------- */
+/* Modal Custom per info corso           */
+/* ------------------------------------- */
+
+.custom-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10001;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.custom-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.custom-modal-content {
+    background-color: #F8C1BA;
+    border: 6px solid black;
+    padding: 50px;
+    max-width: 700px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 15px 15px 0px black;
+    transform: scale(0.8);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+.custom-modal-overlay.active .custom-modal-content {
+    transform: scale(1);
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    font-size: 50px;
+    font-family: sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+    line-height: 1;
+}
+
+.close-modal-btn:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+.modal-title-custom {
+    font-family: 'Impact', 'Arial Narrow', sans-serif;
+    font-size: 60px;
+    color: black;
+    margin-bottom: 25px;
+    text-transform: lowercase;
+    line-height: 1;
+}
+
+.modal-desc-custom {
+    font-family: sans-serif;
+    font-size: 24px;
+    margin-bottom: 30px;
+    white-space: pre-line;
+    line-height: 1.4;
+    color: black;
+}
+
+.modal-istruttore-custom {
+    font-family: 'Impact', 'Arial Narrow', sans-serif;
+    font-size: 30px;
+    text-transform: lowercase;
+}
+
+.modal-istruttore-custom a {
+    color: #C94245;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.modal-istruttore-custom a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* ------------------------------------- */
+/* Sezione Allenatori / Dettaglio        */
+/* ------------------------------------- */
+
+.allenatori-sfondo {
+    background-color: #8584BD !important;
+    min-height: 100vh;
+    padding-top: 150px;
+    padding-bottom: 50px;
+}
+
+.testo-allenatori-hero {
+    text-align: center;
+    color: #F4ED36;
+    font-family: 'Impact', 'Arial Narrow', sans-serif;
+    font-size: 80px;
+    font-weight: 900;
+    line-height: 1;
+    text-transform: lowercase;
+    margin-bottom: 60px;
+}
+
+.allenatore-card-container {
+    border: 4px solid black;
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 10px 10px 0px black;
+    transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.allenatore-card-container:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.allenatore-img-ph {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+    border: 4px solid black;
+    background-color: #F8C1BA;
+    object-fit: cover;
+}
+
+.allenatore-nome-card {
+    font-family: 'Impact', 'Arial Narrow', sans-serif;
+    font-size: 40px;
+    color: black;
+    text-transform: lowercase;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.allenatore-ruolo-card {
+    font-size: 24px;
+    color: #C94245;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+}
+
+.allenatore-desc-card {
+    font-family: sans-serif;
+    font-size: 18px;
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+
+.btn-scopri {
+    background-color: #C94245;
+    color: #F4ED36;
+    font-family: 'Impact', 'Arial Narrow', sans-serif;
+    font-size: 24px;
+    border: 3px solid black;
+    padding: 10px 20px;
+    text-decoration: none;
+    text-transform: lowercase;
+    transition: all 0.2s;
+    display: inline-block;
+}
+
+.btn-scopri:hover {
+    background-color: #F4ED36;
+    color: black;
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 0px black;
+}
+
+/* Pagina Dettaglio Personale */
+.dettaglio-sfondo {
+    background-color: #F8C1BA !important;
+    min-height: 100vh;
+    padding-top: 150px;
+    padding-bottom: 50px;
+}
+
+.dettaglio-box {
+    border: 6px solid black;
+    background-color: white;
+    padding: 50px;
+    box-shadow: 15px 15px 0px black;
+}
+
+.dettaglio-img {
+    width: 100%;
+    max-width: 400px;
+    border: 6px solid black;
+    background-color: #8584BD;
+    margin-bottom: 30px;
+}
+
+.dettaglio-nome {
+    font-family: 'Impact', 'Arial Narrow', sans-serif;
+    font-size: 80px;
+    color: black;
+    text-transform: lowercase;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.dettaglio-ruolo {
+    font-family: sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: #C94245;
+    margin-bottom: 30px;
+}
+
+.dettaglio-testo {
+    font-family: sans-serif;
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.dettaglio-corsi {
+    font-family: 'Impact', 'Arial Narrow', sans-serif;
+    font-size: 30px;
+    margin-bottom: 15px;
+    text-transform: lowercase;
+}
+
+.btn-back-corsi {
+    background-color: #8584BD;
+    color: white;
+    font-family: 'Impact', 'Arial Narrow', sans-serif;
+    font-size: 24px;
+    border: 3px solid black;
+    padding: 10px 30px;
+    text-decoration: none;
+    text-transform: lowercase;
+    transition: all 0.2s;
+    display: inline-block;
+}
+
+.btn-back-corsi:hover {
+    background-color: #F4ED36;
+    color: black;
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 0px black;
+}
+
+/* ------------------------------------- */
+/* Sezione Abbonamenti                  */
+/* ------------------------------------- */
+
+.quarto_sfondo {
+    background-color: #F4ED36 !important;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.section-title {
+    font-family: 'Impact', 'Arial Narrow', sans-serif;
+    font-size: 80px;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.subscription-card {
+    background-color: white;
+    border: 4px solid black;
+    border-radius: 40px;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 15px 15px 0px black;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.subscription-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 25px 25px 0px black;
+}
+
+.subscription-card.highlighting {
+    background-color: #8584BD;
+    color: white;
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.subscription-card.highlighting:hover {
+    transform: translateY(-15px) scale(1.08);
+}
+
+.subscription-card.highlighting .plan-name,
+.subscription-card.highlighting .plan-price,
+.subscription-card.highlighting .plan-benefits li {
+    color: white;
+}
+
+.subscription-card.highlighting .btn-choose {
+    background-color: #F4ED36;
+    color: black;
+}
+
+.badge-featured {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #C94245;
+    color: #F4ED36;
+    padding: 5px 20px;
+    border: 3px solid black;
+    border-radius: 50px;
+    font-family: 'Impact', sans-serif;
+    font-size: 20px;
+}
+
+.plan-name {
+    font-family: 'Impact', 'Arial Narrow', sans-serif;
+    font-size: 40px;
+    margin-bottom: 10px;
+    text-transform: lowercase;
+}
+
+.plan-price {
+    font-family: 'Impact', 'Arial Narrow', sans-serif;
+    font-size: 60px;
+    color: #C94245;
+    margin-bottom: 30px;
+}
+
+.plan-price span {
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.plan-benefits {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 40px;
+    flex-grow: 1;
+}
+
+.plan-benefits li {
+    font-size: 20px;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.btn-choose {
+    display: inline-block;
+    background-color: #C94245;
+    color: white;
+    font-family: 'Impact', 'Arial Narrow', sans-serif;
+    font-size: 28px;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    border: 4px solid black;
+    transition: all 0.3s;
+    text-transform: lowercase;
+    box-shadow: 6px 6px 0px black;
+}
+
+.btn-choose:hover {
+    background-color: #F4ED36;
+    color: black;
+    transform: translateY(-3px);
+    box-shadow: 10px 10px 0px black;
+}
+
+/* ------------------------------------- */
+/* Pagine di Pagamento                  */
+/* ------------------------------------- */
+
+.payment-page {
+    background-color: #f4f4f4;
+}
+
+.payment-hero {
+    min-height: 100vh;
+    padding-top: 100px;
+    background: linear-gradient(135deg, #f8c1ba 0%, #8584bd 100%);
+}
+
+.payment-title {
+    font-family: 'Impact', sans-serif;
+    font-size: 60px;
+    text-transform: lowercase;
+    margin-bottom: 30px;
+    color: black;
+}
+
+.summary-box {
+    background: white;
+    border: 4px solid black;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 0px black;
+    display: inline-block;
+    min-width: 300px;
+}
+
+.summary-box.highlighting {
+    background-color: #8584BD;
+    color: white;
+}
+
+.plan-label {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.plan-name-display {
+    font-family: 'Impact', sans-serif;
+    font-size: 48px;
+    margin: 0;
+}
+
+.price-display {
+    font-family: 'Impact', sans-serif;
+    font-size: 36px;
+    color: #C94245;
+}
+
+.summary-box.highlighting .price-display {
+    color: #F4ED36;
+}
+
+.method-icons img {
+    height: 40px;
+    margin-right: 15px;
+    filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.2));
+}
+
+.payment-container {
+    background: white;
+    border: 4px solid black;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 15px 15px 0px black;
+}
+
+/* Credit Card Mockup */
+.credit-card-container {
+    perspective: 1000px;
+}
+
+.credit-card {
+    width: 100%;
+    max-width: 400px;
+    height: 240px;
+    background: linear-gradient(135deg, #C94245 0%, #F8C1BA 100%);
+    border-radius: 20px;
+    position: relative;
+    padding: 30px;
+    color: white;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    user-select: none;
+    margin: 0 auto;
+}
+
+.credit-card.purple-gradient {
+    background: linear-gradient(135deg, #8584BD 0%, #C94245 100%);
+}
+
+.credit-card.gold-gradient {
+    background: linear-gradient(135deg, #F4ED36 0%, #C94245 100%);
+    color: black;
+}
+
+.credit-card:hover {
+    transform: translateY(-5px) rotateX(5deg);
+}
+
+.card-chip {
+    width: 50px;
+    height: 40px;
+    background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.card-logo {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.card-number {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 26px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    word-spacing: 8px;
+}
+
+.card-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detail-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-bottom: 5px;
+}
+
+.detail-value {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* Form Styles */
+.payment-form .form-label {
+    font-family: 'Impact', sans-serif;
+    text-transform: lowercase;
+    font-size: 20px;
+}
+
+.payment-form .form-control {
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 16px;
+}
+
+.payment-form .form-control:focus {
+    box-shadow: 4px 4px 0px black;
+    border-color: black;
+}
+
+.btn-pay-now {
+    background-color: #C94245;
+    color: white;
+    font-family: 'Impact', sans-serif;
+    font-size: 32px;
+    padding: 15px;
+    border: 4px solid black;
+    border-radius: 15px;
+    box-shadow: 8px 8px 0px black;
+    transition: all 0.2s;
+    text-transform: lowercase;
+}
+
+.btn-pay-now:hover {
+    background-color: #F4ED36;
+    color: black;
+    transform: translateY(-3px);
+    box-shadow: 12px 12px 0px black;
+}
+
+.btn-pay-now.highlighting {
+    background-color: #F4ED36;
+    color: black;
+}
+
+.btn-pay-now.highlighting:hover {
+    background-color: black;
+    color: white;
+}
+
+/* ------------------------------------- */
+/* Cursore Personalizzato e Giocoso     */
+/* ------------------------------------- */
+
+* {
+    cursor: none !important;
+}
+
+#custom-cursor {
+    width: 25px;
+    height: 25px;
+    background-color: #C94245;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 999999;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s, background-color 0.3s, transform 0.05s linear;
+    mix-blend-mode: difference;
+    box-shadow: 0 0 20px rgba(201, 66, 69, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#custom-cursor::after {
+    content: '🖐️';
+    /* Mano aperta giocosa */
+    font-size: 0px;
+    transition: font-size 0.3s;
+}
+
+#custom-cursor.hover {
+    width: 65px;
+    height: 65px;
+    background-color: #F4ED36;
+    mix-blend-mode: normal;
+    box-shadow: 0 0 30px rgba(244, 237, 54, 0.8);
+    border: 3px solid black;
+    transform: translate(-50%, -50%) rotate(10deg);
+}
+
+#custom-cursor.hover::after {
+    font-size: 30px;
+}
+
+/* Nascondi cursore su mobile */
+@media (max-width: 768px) {
+    #custom-cursor {
+        display: none;
+    }
+
+    * {
+        cursor: auto !important;
+    }
+}
+
+/* ------------------------------------- */
+/* Preloader Styles                     */
+/* ------------------------------------- */
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #8584BD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000000;
+    transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+#preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-logo {
+    width: 150px;
+    animation: pulseLogo 1.5s infinite ease-in-out;
+}
+
+.loader-bar {
+    width: 300px;
+    height: 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 3px solid black;
+    border-radius: 20px;
+    margin: 30px auto;
+    overflow: hidden;
+}
+
+.loader-progress {
+    width: 0%;
+    height: 100%;
+    background-color: #F4ED36;
+    animation: loadBar 2s forwards cubic-bezier(0.1, 0, 0.1, 1);
+}
+
+.loader-text {
+    font-family: 'Impact', sans-serif;
+    font-size: 24px;
+    color: #F4ED36;
+    text-transform: lowercase;
+    letter-spacing: 2px;
+}
+
+@keyframes pulseLogo {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1) rotate(10deg);
+    }
+}
+
+@keyframes loadBar {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+/* ------------------------------------- */
+/* Accessibilità                        */
+/* ------------------------------------- */
+
+.accessibility-fab {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: black;
+    border: 4px solid #F4ED36;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000001;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Icona Carrozzina in CSS Puro */
+.wheelchair-icon {
+    position: relative;
+    width: 24px;
+    height: 30px;
+}
+
+.wheelchair-wheel {
+    position: absolute;
+    bottom: 0;
+    left: 4px;
+    width: 16px;
+    height: 16px;
+    border: 2.5px solid white;
+    border-radius: 50%;
+}
+
+.wheelchair-body {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    width: 10px;
+    height: 10px;
+    border-left: 2.5px solid white;
+    border-bottom: 2.5px solid white;
+}
+
+.wheelchair-head {
+    position: absolute;
+    top: 0;
+    left: 12px;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.accessibility-fab:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.acc-panel {
+    position: fixed;
+    top: 90px;
+    left: 20px;
+    background: white;
+    border: 5px solid black;
+    padding: 25px;
+    width: 280px;
+    z-index: 10000002;
+    box-shadow: 12px 12px 0px black;
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.acc-panel.active {
+    display: flex;
+}
+
+.acc-panel h3 {
+    font-family: 'Impact', sans-serif;
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-transform: lowercase;
+    border-bottom: 3px solid black;
+    padding-bottom: 5px;
+}
+
+.acc-panel button {
+    background: white;
+    border: 3px solid black;
+    padding: 12px;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: 900;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.acc-panel button:hover {
+    background-color: #F4ED36;
+    transform: translateX(5px);
+}
+
+.close-acc {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Temi Accessibilità */
+body.high-contrast {
+    background-color: black !important;
+    color: white !important;
+}
+
+body.high-contrast * {
+    background-color: black !important;
+    color: #F4ED36 !important;
+    border-color: white !important;
+    box-shadow: none !important;
+    background-image: none !important;
+}
+
+/* FIX CURSORE IN ALTO CONTRASTO E Z-INDEX */
+#custom-cursor {
+    z-index: 100000000 !important;
+    /* Molto alto per stare sopra il menu */
+}
+
+body.high-contrast #custom-cursor {
+    background-color: #F4ED36 !important;
+    mix-blend-mode: normal !important;
+    border: 2px solid white !important;
+}
+
+body.high-contrast a,
+body.high-contrast button {
+    color: white !important;
+    text-decoration: underline !important;
+}
+
+/* Fix Immagini in Alto Contrasto */
+body.high-contrast img {
+    filter: brightness(0.8) contrast(1.5) grayscale(100%) invert(0) !important;
+    border: 2px solid #F4ED36 !important;
+}
+
+body.dyslexic-font,
+body.dyslexic-font * {
+    font-family: 'OpenDyslexic', sans-serif !important;
+}
+
+/* MARQUEE ANIMATION */
+.marquee-container {
+    background-color: black;
+    color: #F4ED36;
+    padding: 15px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+    transform: rotate(-1deg) scale(1.05);
+    z-index: 10;
+    margin: 40px 0;
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+    font-family: 'Impact', sans-serif;
+    font-size: 40px;
+    text-transform: lowercase;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* FLOATING SHAPES */
+.floating-blob {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #8584BD 0%, transparent 70%);
+    filter: blur(40px);
+    opacity: 0.4;
+    z-index: -1;
+    animation: floatBlob 10s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes floatBlob {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(50px, -30px) scale(1.2);
+    }
+
+    66% {
+        transform: translate(-20px, 40px) scale(0.8);
+    }
+}
+
+/* BOUNCY REVEALS */
+.reveal-bouncy {
+    opacity: 0;
+    transform: scale(0.8) translateY(50px);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reveal-bouncy.active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* SVT WAVES */
+.wave-separator {
+    width: 100%;
+    height: 100px;
+    fill: #F4ED36;
+    margin-top: -50px;
+}
+
+.badge-coach {
+    background-color: black;
+    color: #F4ED36;
+    padding: 5px 15px;
+    font-family: 'Impact', sans-serif;
+    text-transform: lowercase;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    transform: rotate(5deg);
+    border: 3px solid black;
+    z-index: 10;
+}
+
+.badge-coach.red {
+    background-color: #C94245;
+    color: white;
+}
+
+.badge-coach.yellow {
+    background-color: #F4ED36;
+    color: black;
+}
+
+.badge-coach.blue {
+    background-color: #8584BD;
+    color: white;
+}
+
+.badge-coach.purple {
+    background-color: #8584BD;
+    color: #F4ED36;
+}
+
+/* Nuovi Stili Giocosi */
+.text-yellow {
+    color: #F4ED36 !important;
+}
+
+.valore-card {
+    background-color: white;
+    border: 4px solid black;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 10px 10px 0px black;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 100%;
+}
+
+.valore-card:hover {
+    transform: translateY(-10px) rotate(-2deg);
+    box-shadow: 15px 15px 0px #F4ED36;
+}
+
+.valore-card.destacar {
+    background-color: #F4ED36;
+}
+
+.valore-card.destacar:hover {
+    box-shadow: 15px 15px 0px black;
+}
+
+.valore-icon {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.cta-storia {
+    background-color: #C94245;
+    padding: 60px;
+    border: 5px solid black;
+    transform: rotate(1deg);
+    box-shadow: -15px 15px 0px #8584BD;
+    margin-top: 50px;
+}
+
+.btn-pill-custom {
+    background-color: black;
+    color: white;
+    border-radius: 50px;
+    padding: 15px 40px;
+    font-family: 'Impact', sans-serif;
+    font-size: 24px;
+    border: 3px solid white;
+    text-transform: lowercase;
+    transition: all 0.3s;
+}
+
+.btn-pill-custom:hover {
+    background-color: #F4ED36;
+    color: black;
+    transform: scale(1.1);
+}
+
+/* FOOTER CUSTOM - RESTYLING GIOCOSO */
+.footer-custom {
+    background-color: #8584BD;
+    /* Viola vibrante invece del nero */
+    color: white;
+    padding: 100px 0 60px 0;
+    border-top: 10px solid #C94245;
+    /* Rosso per contrasto */
+    position: relative;
+    overflow: hidden;
+    /* Per contenere le decorazioni */
+}
+
+/* Decorazioni galleggianti nel footer */
+.footer-deco {
+    position: absolute;
+    font-size: 80px;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.footer-map-container {
+    border: 8px solid black;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 20px 20px 0px black;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 400px;
+}
+
+.footer-map-container:hover {
+    transform: rotate(2deg) scale(1.05);
+    box-shadow: 10px 10px 0px black;
+}
+
+.footer-map-container iframe {
+    width: 100%;
+    height: 100%;
+    filter: none;
+    /* Rimosso bianco e nero */
+}
+
+.footer-right-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding-left: 50px;
+}
+
+.footer-logo {
+    max-width: 280px;
+    margin-bottom: 35px;
+    filter: drop-shadow(5px 5px 0px black);
+    transition: transform 0.3s;
+}
+
+.footer-info {
+    font-family: 'Impact', sans-serif;
+    font-size: 28px;
+    color: black;
+    /* Testo nero su fondo viola per leggibilità e stile */
+    line-height: 1.1;
+    margin-bottom: 40px;
+    text-transform: lowercase;
+}
+
+.footer-links-bottom {
+    border-top: 4px solid black;
+    padding-top: 30px;
+    margin-top: 60px;
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+}
+
+.btn-footer {
+    background-color: #F4ED36;
+    color: black;
+    border: 4px solid black;
+    border-radius: 15px;
+    /* Meno tondo, più 'squircle' stile Maxima */
+    padding: 15px 40px;
+    font-family: 'Impact', sans-serif;
+    font-size: 24px;
+    width: fit-content;
+    text-transform: lowercase;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 5px 5px 0px black;
+}
+
+.btn-footer:hover {
+    background-color: white;
+    transform: translateY(-5px);
+    box-shadow: 10px 10px 0px black;
+}
+
+@media (max-width: 768px) {
+    .footer-right-content {
+        padding-left: 0;
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    .btn-footer {
+        margin: 0 auto;
+    }
+}
+
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('https://cdnjs.cloudflare.com/ajax/libs/open-dyslexic/1.1.0/OpenDyslexic-Regular.otf');
+}
+
+/* ------------------------------------- */
+/* LOGIN & ACCESSO                       */
+/* ------------------------------------- */
+.login-sfondo {
+    background-color: #F4ED36 !important;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-box {
+    border: 4px solid black;
+    background-color: white;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow: 15px 15px 0px black;
+    width: 100%;
+    max-width: 450px;
+}
+
+.login-title {
+    font-family: 'Impact', 'Arial Narrow', sans-serif;
+    font-size: 70px;
+    color: black;
+    text-transform: lowercase;
+    margin-bottom: 30px;
+    line-height: 1;
+}
+
+.form-control-custom {
+    border: 2px solid black;
+    margin-bottom: 25px;
+    border-radius: 0;
+    padding: 15px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.btn-custom {
+    background-color: #8584BD;
+    color: white;
+    font-family: 'Impact', sans-serif;
+    font-size: 30px;
+    border: 4px solid black;
+    padding: 10px 30px;
+    text-transform: lowercase;
+    transition: all 0.2s;
+}
+
+.btn-custom:hover {
+    background-color: #C94245;
+    box-shadow: 6px 6px 0px black;
+}
+
+/* ------------------------------------- */
+/* AREE ADMIN & SOTTOPAGINE              */
+/* ------------------------------------- */
+.admin-sub-bg { min-height: 100vh; padding-top: 120px; padding-bottom: 80px; }
+.admin-sub-bg.utenti { background-color: #8584BD; }
+.admin-sub-bg.allenatori { background-color: #C94245; }
+.admin-sub-bg.corsi { background-color: #F4ED36; }
+
+.admin-card-form { 
+    background-color: white; 
+    border: 6px solid black; 
+    border-radius: 40px; 
+    padding: 40px; 
+    box-shadow: 20px 20px 0px black; 
+    margin-bottom: 50px; 
+}
+
+.form-title { 
+    font-family: 'Impact', sans-serif; 
+    font-size: 40px; 
+    margin-bottom: 30px; 
+    text-transform: lowercase; 
+    color: black; 
+    border-bottom: 5px solid #F4ED36; 
+    display: inline-block; 
+}
+
+.btn-admin-action { 
+    font-family: 'Impact', sans-serif; 
+    text-transform: lowercase; 
+    font-size: 24px; 
+    padding: 15px 40px; 
+    border: 4px solid black; 
+    border-radius: 15px; 
+    box-shadow: 8px 8px 0px black; 
+    transition: all 0.2s; 
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-add { background-color: #F4ED36; color: black; }
+.btn-remove { background-color: #C94245; color: white; }
+.btn-admin-action:hover { transform: translateY(-5px); box-shadow: 12px 12px 0px black; }
+
+.form-control-admin { 
+    border: 4px solid black; 
+    border-radius: 10px; 
+    padding: 12px; 
+    font-size: 16px; 
+    margin-bottom: 15px; 
+    width: 100%; 
+}
+
+.admin-label { 
+    font-family: 'Impact', sans-serif; 
+    text-transform: lowercase; 
+    font-size: 18px; 
+    margin-bottom: 5px; 
+    display: block; 
+}
+
+/* ------------------------------------- */
+/* AREA PERSONALE (UTENTE/COACH)        */
+/* ------------------------------------- */
+.user-bg { background-color: #F4ED36; min-height: 100vh; padding-top: 100px; padding-bottom: 50px; }
+.coach-bg { background-color: #C94245; min-height: 100vh; padding-top: 100px; padding-bottom: 50px; }
+
+.user-title, .coach-title { 
+    font-family: 'Impact', sans-serif; 
+    font-size: 60px; 
+    text-transform: lowercase; 
+    margin-bottom: 40px; 
+}
+.coach-title { color: white; }
+
+.course-item { border-bottom: 2px solid #eee; padding: 15px 0; display: flex; justify-content: space-between; align-items: center; }
+.lezione-item { border-left: 10px solid #F4ED36; padding: 15px; margin-bottom: 15px; background: #f9f9f9; }
+
+.btn-iscriviti { 
+    background-color: #8584BD; 
+    color: white; 
+    font-family: 'Impact', sans-serif; 
+    border: 3px solid black; 
+    padding: 10px 20px; 
+    border-radius: 10px; 
+    text-decoration: none; 
+    display: block;
+    text-align: center;
+}
+
+/* PASSWORD EYE TOGGLE */
+.password-box { position: relative; width: 100%; }
+.password-eye {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+    color: #888;
+    z-index: 10;
+}
+.password-eye:hover { color: black; }
+
+/* ------------------------------------- */
+/* ANIMAZIONI GYM STYLE                 */
+/* ------------------------------------- */
+
+/* Sollevamento pesi */
+@keyframes gym-lift {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-30px) rotate(5deg); }
+}
+.anim-lift { animation: gym-lift 2s infinite ease-in-out; }
+
+/* Boxe (Pugno veloce) */
+@keyframes boxing-punch {
+    0%, 90% { transform: translateX(0); }
+    95% { transform: translateX(40px) scaleX(1.1); }
+}
+.anim-punch { animation: boxing-punch 1.5s infinite; }
+
+/* Yoga (Respiro profondo) */
+@keyframes yoga-breath {
+    0%, 100% { transform: scale(1); filter: blur(0px); }
+    50% { transform: scale(1.03); filter: blur(2px); }
+}
+.anim-breath { animation: yoga-breath 4s infinite ease-in-out; }
+
+/* Salto (Esplosivo) */
+@keyframes gym-jump {
+    0%, 100% { transform: scaleY(1); }
+    40% { transform: scaleY(0.8) translateY(0); }
+    50% { transform: scaleY(1.1) translateY(-50px); }
+}
+.anim-jump { animation: gym-jump 1.8s infinite; }
+
+/* Kettlebell Swing */
+@keyframes kettlebell-swing {
+    0%, 100% { transform: rotate(-30deg); transform-origin: top center; }
+    50% { transform: rotate(30deg); transform-origin: top center; }
+}
+.anim-swing { animation: kettlebell-swing 2s infinite ease-in-out; }
+
+.gym-deco-icon {
+    position: absolute;
+    font-size: 50px;
+    opacity: 0.3;
+    z-index: 1;
+}
